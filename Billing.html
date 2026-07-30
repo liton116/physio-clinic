@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Billing - Pain Management Physiotherapy Center
+</title>
+
+<link rel="stylesheet" href="billing.css">
+
+</head>
+
+
+<body>
+
+
+<div class="bill-page">
+
+
+<div class="header">
+
+<h1 id="clinicName">
+পেইন ম্যানেজমেন্ট ফিজিওথেরাপি সেন্টার
+</h1>
+
+<h2 id="englishName">
+Pain Management Physiotherapy Center
+</h2>
+
+<p id="address">
+পাকেরহাট, খানসামা, দিনাজপুর
+</p>
+
+<p id="phone">
+মোবাইল: 01750392591
+</p>
+
+<hr>
+
+<h2>
+Patient Billing / Money Receipt
+</h2>
+
+</div>
+
+
+
+
+<table class="info-table">
+
+
+<tr>
+
+<td>
+<b>Invoice No:</b>
+<span id="invoiceNo"></span>
+</td>
+
+
+<td>
+<b>Date:</b>
+
+<input type="date" id="billDate">
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+
+<b>Patient ID:</b>
+
+<select id="patientId"
+onchange="loadPatient()">
+
+<option>
+Select Patient
+</option>
+
+</select>
+
+
+</td>
+
+
+
+<td>
+
+<b>Patient Name:</b>
+
+<input type="text"
+id="patientName"
+readonly>
+
+</td>
+
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+
+<b>Mobile:</b>
+
+<input type="text"
+id="mobile"
+readonly>
+
+</td>
+
+
+
+<td>
+
+<b>Payment Method:</b>
+
+<select id="payment">
+
+<option>Cash</option>
+
+<option>bKash</option>
+
+<option>Nagad</option>
+
+<option>Bank</option>
+
+</select>
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+
+
+
+<h3>
+Billing Information
+</h3>
+
+
+
+
+<table class="bill-table">
+
+
+<tr>
+
+<th>
+Service
+</th>
+
+<th>
+Amount (৳)
+</th>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Registration Fee
+</td>
+
+<td>
+
+<input type="number"
+id="registrationFee"
+value="0"
+onkeyup="calculateBill()">
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Session Fee
+</td>
+
+<td>
+
+<input type="number"
+id="sessionFee"
+value="0"
+onkeyup="calculateBill()">
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Number of Sessions
+</td>
+
+<td>
+
+<input type="number"
+id="sessionQty"
+value="1"
+onkeyup="calculateBill()">
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Discount
+</td>
+
+<td>
+
+<input type="number"
+id="discount"
+value="0"
+onkeyup="calculateBill()">
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+<b>Total Amount</b>
+</td>
+
+<td>
+
+<input type="text"
+id="totalAmount"
+readonly>
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Paid Amount
+</td>
+
+<td>
+
+<input type="number"
+id="paidAmount"
+value="0"
+onkeyup="calculateBill()">
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+<b>Due Amount</b>
+</td>
+
+<td>
+
+<input type="text"
+id="dueAmount"
+readonly>
+
+</td>
+
+</tr>
+
+
+
+</table>
+
+
+
+
+<br>
+
+
+<button onclick="saveBill()">
+
+💾 Save Bill
+
+</button>
+
+
+<button onclick="window.print()">
+
+🖨 Print
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+// Invoice Number
+
+document.getElementById("invoiceNo").innerHTML =
+"INV-" + new Date().getTime();
+
+
+
+
+// Date Auto
+
+let today = new Date();
+
+document.getElementById("billDate").value =
+
+today.getFullYear()+"-"+
+String(today.getMonth()+1).padStart(2,'0')+"-"+
+String(today.getDate()).padStart(2,'0');
+
+
+
+
+
+// Load Clinic Settings
+
+
+document.getElementById("clinicName").innerHTML =
+
+localStorage.getItem("clinicName") ||
+
+"পেইন ম্যানেজমেন্ট ফিজিওথেরাপি সেন্টার";
+
+
+document.getElementById("englishName").innerHTML =
+
+localStorage.getItem("englishName") ||
+
+"Pain Management Physiotherapy Center";
+
+
+document.getElementById("address").innerHTML =
+
+localStorage.getItem("address") ||
+
+"পাকেরহাট, খানসামা, দিনাজপুর";
+
+
+document.getElementById("phone").innerHTML =
+
+"মোবাইল: " +
+
+(localStorage.getItem("phone") || "01750392591");
+
+
+
+
+
+
+// Load Fee From Settings
+
+
+document.getElementById("registrationFee").value =
+
+localStorage.getItem("regFee") || 200;
+
+
+
+document.getElementById("sessionFee").value =
+
+localStorage.getItem("sessionFee") || 300;
+
+
+
+
+
+
+
+// Load Patient List
+
+
+let patients =
+
+JSON.parse(localStorage.getItem("patients")) || [];
+
+
+
+let patientSelect =
+
+document.getElementById("patientId");
+
+
+
+patients.forEach(function(patient){
+
+
+let option = document.createElement("option");
+
+
+option.value = patient.id;
+
+
+option.text = patient.id+" - "+patient.name;
+
+
+patientSelect.appendChild(option);
+
+
+});
+
+
+
+
+
+
+
+// Patient Information Load
+
+
+function loadPatient(){
+
+
+let id =
+
+document.getElementById("patientId").value;
+
+
+
+let patient =
+
+patients.find(p=>p.id==id);
+
+
+
+if(patient){
+
+
+document.getElementById("patientName").value =
+patient.name;
+
+
+document.getElementById("mobile").value =
+patient.mobile;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+// Calculate Bill
+
+
+function calculateBill(){
+
+
+
+let reg =
+
+Number(document.getElementById("registrationFee").value)||0;
+
+
+
+let session =
+
+Number(document.getElementById("sessionFee").value)||0;
+
+
+
+let qty =
+
+Number(document.getElementById("sessionQty").value)||1;
+
+
+
+let discount =
+
+Number(document.getElementById("discount").value)||0;
+
+
+
+let paid =
+
+Number(document.getElementById("paidAmount").value)||0;
+
+
+
+
+let total =
+
+reg+(session*qty)-discount;
+
+
+
+let due =
+
+total-paid;
+
+
+
+
+document.getElementById("totalAmount").value =
+total+" ৳";
+
+
+document.getElementById("dueAmount").value =
+due+" ৳";
+
+
+
+}
+
+
+
+
+
+
+// Save Bill
+
+
+function saveBill(){
+
+
+let bills =
+
+JSON.parse(localStorage.getItem("bills")) || [];
+
+
+
+let bill = {
+
+
+invoice:
+document.getElementById("invoiceNo").innerHTML,
+
+
+patientId:
+document.getElementById("patientId").value,
+
+
+patientName:
+document.getElementById("patientName").value,
+
+
+total:
+document.getElementById("totalAmount").value,
+
+
+paid:
+document.getElementById("paidAmount").value,
+
+
+due:
+document.getElementById("dueAmount").value,
+
+
+date:
+document.getElementById("billDate").value
+
+
+};
+
+
+
+bills.push(bill);
+
+
+
+localStorage.setItem(
+"bills",
+JSON.stringify(bills)
+);
+
+
+
+
+alert("Bill Saved Successfully");
+
+
+}
+
+
+
+calculateBill();
+
+
+</script>
+
+
+</body>
+
+</html>

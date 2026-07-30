@@ -1,0 +1,188 @@
+/* =====================================
+ Pain Management Physiotherapy Center
+ Settings Page CSS
+===================================== */
+
+
+body{
+
+font-family:Arial,"Noto Sans Bengali",sans-serif;
+
+background:#eef5ff;
+
+margin:0;
+
+padding:0;
+
+}
+
+
+
+/* Settings Box */
+
+.settings-page{
+
+width:700px;
+
+margin:20px auto;
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:0 0 12px #aaa;
+
+}
+
+
+
+/* Header */
+
+.header{
+
+text-align:center;
+
+border:2px solid #0066cc;
+
+padding:15px;
+
+border-radius:10px;
+
+margin-bottom:20px;
+
+}
+
+
+.header h1{
+
+color:#0066cc;
+
+font-size:28px;
+
+margin:5px;
+
+}
+
+
+.header h2{
+
+color:#009688;
+
+font-size:20px;
+
+margin:5px;
+
+}
+
+
+
+/* Label */
+
+label{
+
+display:block;
+
+font-weight:bold;
+
+color:#333;
+
+margin-top:15px;
+
+margin-bottom:5px;
+
+}
+
+
+
+/* Input */
+
+input,
+textarea{
+
+width:100%;
+
+padding:10px;
+
+font-size:15px;
+
+border:1px solid #999;
+
+border-radius:6px;
+
+outline:none;
+
+}
+
+
+textarea{
+
+height:120px;
+
+resize:none;
+
+}
+
+
+
+/* Button */
+
+button{
+
+margin-top:20px;
+
+background:#0066cc;
+
+color:white;
+
+border:none;
+
+padding:12px 35px;
+
+font-size:16px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+}
+
+
+button:hover{
+
+background:#004c99;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+
+.settings-page{
+
+width:95%;
+
+padding:15px;
+
+}
+
+
+.header h1{
+
+font-size:22px;
+
+}
+
+
+.header h2{
+
+font-size:16px;
+
+}
+
+
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings</title>
+
+<link rel="stylesheet" href="settings.css">
+
+</head>
+
+
+<body>
+
+
+<div class="settings-page">
+
+
+<div class="header">
+
+<h1>Settings</h1>
+
+<h2>Clinic Information</h2>
+
+</div>
+
+
+
+<label>প্রতিষ্ঠানের নাম</label>
+
+<input type="text" id="clinicName"
+value="পেইন ম্যানেজমেন্ট ফিজিওথেরাপি সেন্টার">
+
+
+
+<label>English Name</label>
+
+<input type="text" id="englishName"
+value="Pain Management Physiotherapy Center">
+
+
+
+<label>ঠিকানা</label>
+
+<input type="text" id="address"
+value="পাকেরহাট, খানসামা, দিনাজপুর">
+
+
+
+<label>মোবাইল নম্বর</label>
+
+<input type="text" id="phone"
+value="01750392591">
+
+
+
+<label>থেরাপিস্ট নাম</label>
+
+<input type="text" id="therapist"
+value="লিটন চন্দ্র রায়">
+
+
+
+<label>ডিগ্রি</label>
+
+<textarea id="degree">
+
+BPT (RU Medicine Faculty)
+
+Diploma in Physiotherapy (SMF)
+
+Manual Therapy & Stroke Management
+
+Dry Needling Course
+
+</textarea>
+
+
+
+<label>Registration Fee</label>
+
+<input type="number" id="regFee" value="200">
+
+
+
+<label>Session Fee</label>
+
+<input type="number" id="sessionFee" value="300">
+
+
+
+<button onclick="saveSettings()">
+
+Save Settings
+
+</button>
+
+
+
+</div>
+
+
+
+<script>
+
+function saveSettings(){
+
+
+localStorage.setItem("clinicName",
+document.getElementById("clinicName").value);
+
+
+localStorage.setItem("englishName",
+document.getElementById("englishName").value);
+
+
+localStorage.setItem("address",
+document.getElementById("address").value);
+
+
+localStorage.setItem("phone",
+document.getElementById("phone").value);
+
+
+localStorage.setItem("therapist",
+document.getElementById("therapist").value);
+
+
+localStorage.setItem("degree",
+document.getElementById("degree").value);
+
+
+localStorage.setItem("regFee",
+document.getElementById("regFee").value);
+
+
+localStorage.setItem("sessionFee",
+document.getElementById("sessionFee").value);
+
+
+
+alert("Settings Saved Successfully");
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

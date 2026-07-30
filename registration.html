@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Patient Registration
+</title>
+
+<link rel="stylesheet" href="registration.css">
+
+</head>
+
+
+<body>
+
+
+<div class="registration-page">
+
+
+<h1>
+পেইন ম্যানেজমেন্ট ফিজিওথেরাপি সেন্টার
+</h1>
+
+<h2>
+Pain Management Physiotherapy Center
+</h2>
+
+<p>
+পাকেরহাট, খানসামা, দিনাজপুর
+</p>
+
+<p>
+মোবাইল: 01750392591
+</p>
+
+
+<hr>
+
+
+<h2>
+Patient Registration
+</h2>
+
+
+
+<label>Patient ID</label>
+
+<input type="text" id="patientId" readonly>
+
+
+
+<label>Patient Name</label>
+
+<input type="text" id="patientName" placeholder="রোগীর নাম লিখুন">
+
+
+
+<label>Age</label>
+
+<input type="number" id="age" placeholder="বয়স">
+
+
+
+<label>Gender</label>
+
+<select id="gender">
+
+<option>পুরুষ</option>
+
+<option>মহিলা</option>
+
+<option>অন্যান্য</option>
+
+</select>
+
+
+
+
+<label>Mobile Number</label>
+
+<input type="text" id="mobile" placeholder="মোবাইল নম্বর">
+
+
+
+
+<label>Address</label>
+
+<textarea id="address"
+placeholder="ঠিকানা লিখুন"></textarea>
+
+
+
+
+<label>
+Diagnosis / Problem
+</label>
+
+<textarea id="problem"
+placeholder="সমস্যার নাম লিখুন"></textarea>
+
+
+
+
+<label>Date</label>
+
+<input type="date" id="date">
+
+
+
+<button onclick="savePatient()">
+💾 Save Patient
+</button>
+
+
+
+<button onclick="resetForm()">
+Reset
+</button>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+// Patient ID তৈরি
+
+function generatePatientID(){
+
+
+let patients =
+JSON.parse(localStorage.getItem("patients")) || [];
+
+
+let number = patients.length + 1;
+
+
+document.getElementById("patientId").value =
+"PMC-" + String(number).padStart(4,"0");
+
+
+}
+
+
+
+
+// Page Load
+
+window.onload=function(){
+
+
+generatePatientID();
+
+
+let today=new Date();
+
+
+document.getElementById("date").value =
+
+today.getFullYear()+"-"+
+String(today.getMonth()+1).padStart(2,"0")+"-"+
+String(today.getDate()).padStart(2,"0");
+
+
+}
+
+
+
+
+// Save Patient
+
+
+function savePatient(){
+
+
+let patient={
+
+
+id:
+document.getElementById("patientId").value,
+
+
+name:
+document.getElementById("patientName").value,
+
+
+age:
+document.getElementById("age").value,
+
+
+gender:
+document.getElementById("gender").value,
+
+
+mobile:
+document.getElementById("mobile").value,
+
+
+address:
+document.getElementById("address").value,
+
+
+problem:
+document.getElementById("problem").value,
+
+
+date:
+document.getElementById("date").value
+
+
+};
+
+
+
+if(patient.name==""){
+
+alert("রোগীর নাম লিখুন");
+
+return;
+
+}
+
+
+
+let patients =
+
+JSON.parse(localStorage.getItem("patients")) || [];
+
+
+
+patients.push(patient);
+
+
+
+localStorage.setItem(
+"patients",
+JSON.stringify(patients)
+);
+
+
+
+alert(
+"রোগীর তথ্য সফলভাবে সংরক্ষণ হয়েছে\nID: "+patient.id
+);
+
+
+
+resetForm();
+
+
+generatePatientID();
+
+
+}
+
+
+
+
+// Reset
+
+
+function resetForm(){
+
+
+document.getElementById("patientName").value="";
+
+document.getElementById("age").value="";
+
+document.getElementById("mobile").value="";
+
+document.getElementById("address").value="";
+
+document.getElementById("problem").value="";
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+body{
+margin:0;
+padding:0;
+background:#eee;
+font-family:"SolaimanLipi",Arial,sans-serif;
+}
+
+
+.page{
+width:210mm;
+min-height:297mm;
+margin:auto;
+background:white;
+padding:10mm;
+box-sizing:border-box;
+}
+
+
+/* HEADER */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+width:100%;
+}
+
+
+/* বাংলা বাম পাশ */
+
+.doctor-left{
+width:33%;
+text-align:left;
+font-size:13px;
+line-height:1.5;
+}
+
+
+/* মাঝখানে লোগো */
+
+.center{
+width:34%;
+text-align:center;
+}
+
+
+.logo{
+width:80px;
+height:80px;
+object-fit:contain;
+}
+
+
+.center h2{
+font-size:22px;
+margin:5px 0;
+}
+
+
+/* ইংরেজি ডান পাশ */
+
+.doctor-right{
+width:33%;
+text-align:right;
+font-size:13px;
+line-height:1.5;
+}
+
+
+
+
+.service{
+font-size:12px;
+font-weight:bold;
+}
+
+
+
+
+hr{
+border:1px solid #000;
+}
+
+
+
+
+/* PATIENT TABLE */
+
+
+.patient-table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+
+.patient-table td{
+border:1px solid #000;
+padding:8px;
+font-size:14px;
+}
+
+
+
+
+/* BODY */
+
+
+.body{
+display:flex;
+width:100%;
+}
+
+
+.left{
+width:45%;
+padding-right:10px;
+border-right:1px solid #000;
+}
+
+
+.right{
+width:55%;
+padding-left:10px;
+}
+
+
+
+.section h3,
+.right h3{
+font-size:15px;
+margin:5px 0;
+}
+
+
+.box{
+border:1px solid #000;
+min-height:60px;
+padding:5px;
+margin-bottom:10px;
+}
+
+
+
+
+/* RX */
+
+
+.rx-header h1{
+font-size:45px;
+margin:0;
+}
+
+
+.rx-box{
+border:1px solid #000;
+min-height:250px;
+padding:10px;
+}
+
+
+
+
+/* VAS */
+
+.pain-scale{
+display:flex;
+justify-content:space-between;
+border:1px solid #000;
+padding:8px;
+}
+
+
+.pain-item{
+text-align:center;
+font-size:18px;
+}
+
+
+.pain-item small{
+font-size:10px;
+}
+
+
+
+
+
+.advice-box,
+.follow-box{
+border:1px solid #000;
+min-height:50px;
+padding:5px;
+}
+
+
+
+
+
+/* FOOTER */
+
+
+.footer{
+display:flex;
+justify-content:space-between;
+border-top:1px solid #000;
+margin-top:20px;
+padding-top:10px;
+font-size:12px;
+text-align:center;
+}
+
+
+.footer-left,
+.footer-center,
+.footer-right{
+width:33%;
+}
+
+
+
+
+
+/* PRINT */
+
+.print-area{
+text-align:center;
+margin-top:15px;
+}
+
+
+button{
+padding:10px 20px;
+font-size:16px;
+}
+
+
+
+@media print{
+
+body{
+background:white;
+}
+
+
+.page{
+margin:0;
+}
+
+
+.print-area{
+display:none;
+}
+
+}

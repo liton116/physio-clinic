@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>রোগী রেজিস্ট্রেশন</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+<h1>রোগী রেজিস্ট্রেশন</h1>
+</header>
+
+<div class="container">
+
+<label>রোগীর নাম</label>
+<input type="text" id="name">
+
+<label>বয়স</label>
+<input type="number" id="age">
+
+<label>লিঙ্গ</label>
+<select id="gender">
+<option>পুরুষ</option>
+<option>মহিলা</option>
+<option>অন্যান্য</option>
+</select>
+
+<label>মোবাইল নম্বর</label>
+<input type="text" id="mobile">
+
+<label>ঠিকানা</label>
+<input type="text" id="address">
+
+<label>রোগের নাম</label>
+<input type="text" id="disease">
+
+<label>রেজিস্ট্রেশন ফি</label>
+<input type="number" id="regfee" value="200">
+
+<label>সেশন ফি</label>
+<input type="number" id="sessionfee" value="300">
+
+<button onclick="savePatient()">রোগী সংরক্ষণ করুন</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

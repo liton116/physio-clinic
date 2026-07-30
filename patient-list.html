@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>রোগীর তালিকা</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header class="header">
+<h1>রোগীর তালিকা</h1>
+</header>
+
+<div class="container">
+
+<input type="text" id="search"
+placeholder="রোগীর নাম বা মোবাইল লিখুন..."
+onkeyup="searchPatient()">
+
+<br><br>
+
+<table border="1" width="100%" cellspacing="0">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>নাম</th>
+<th>মোবাইল</th>
+<th>বয়স</th>
+<th>অ্যাকশন</th>
+
+</tr>
+
+</thead>
+
+<tbody id="patientTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

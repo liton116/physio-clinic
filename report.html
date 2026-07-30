@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Patient Report - Pain Management Physiotherapy Center
+</title>
+
+<link rel="stylesheet" href="report.css">
+
+</head>
+
+
+<body>
+
+
+<div class="report-page">
+
+
+<div class="header">
+
+
+<h1 id="clinicName">
+পেইন ম্যানেজমেন্ট ফিজিওথেরাপি সেন্টার
+</h1>
+
+
+<h2 id="englishName">
+Pain Management Physiotherapy Center
+</h2>
+
+
+<p id="address">
+পাকেরহাট, খানসামা, দিনাজপুর
+</p>
+
+
+<p id="phone">
+মোবাইল: 01750392591
+</p>
+
+
+<hr>
+
+
+<h2>
+Patient Treatment Report
+</h2>
+
+
+</div>
+
+
+
+
+
+<table>
+
+
+<tr>
+
+<td>
+Patient ID
+</td>
+
+<td>
+
+<select id="patientId" onchange="loadPatient()">
+
+<option>
+Select Patient
+</option>
+
+</select>
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Patient Name
+</td>
+
+<td>
+
+<input type="text" id="patientName" readonly>
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Age
+</td>
+
+<td>
+
+<input type="text" id="age" readonly>
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Mobile
+</td>
+
+<td>
+
+<input type="text" id="mobile" readonly>
+
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Diagnosis / Problem
+</td>
+
+<td>
+
+<textarea id="problem"></textarea>
+
+</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>
+Pain Score (0-10)
+</td>
+
+
+<td>
+
+
+<div class="pain-scale">
+
+
+<label>0<input type="radio" name="pain" value="0"></label>
+
+<label>1<input type="radio" name="pain" value="1"></label>
+
+<label>2<input type="radio" name="pain" value="2"></label>
+
+<label>3<input type="radio" name="pain" value="3"></label>
+
+<label>4<input type="radio" name="pain" value="4"></label>
+
+<label>5<input type="radio" name="pain" value="5"></label>
+
+<label>6<input type="radio" name="pain" value="6"></label>
+
+<label>7<input type="radio" name="pain" value="7"></label>
+
+<label>8<input type="radio" name="pain" value="8"></label>
+
+<label>9<input type="radio" name="pain" value="9"></label>
+
+<label>10<input type="radio" name="pain" value="10"></label>
+
+
+</div>
+
+
+</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>
+Treatment Details
+</td>
+
+
+<td>
+
+<textarea id="treatment"
+placeholder="চিকিৎসার বিবরণ লিখুন"></textarea>
+
+</td>
+
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>
+Advice
+</td>
+
+
+<td>
+
+<textarea id="advice"
+placeholder="পরামর্শ লিখুন"></textarea>
+
+</td>
+
+
+</tr>
+
+
+
+</table>
+
+
+
+<br>
+
+
+<button onclick="window.print()">
+
+🖨 Print Report
+
+</button>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+// Load Settings
+
+
+document.getElementById("clinicName").innerHTML =
+
+localStorage.getItem("clinicName") ||
+
+"পেইন ম্যানেজমেন্ট ফিজিওথেরাপি সেন্টার";
+
+
+
+document.getElementById("englishName").innerHTML =
+
+localStorage.getItem("englishName") ||
+
+"Pain Management Physiotherapy Center";
+
+
+
+document.getElementById("address").innerHTML =
+
+localStorage.getItem("address") ||
+
+"পাকেরহাট, খানসামা, দিনাজপুর";
+
+
+
+document.getElementById("phone").innerHTML =
+
+"মোবাইল: " +
+
+(localStorage.getItem("phone") || "01750392591");
+
+
+
+
+
+
+// Load Patient List
+
+
+let patients =
+
+JSON.parse(localStorage.getItem("patients")) || [];
+
+
+
+let select =
+
+document.getElementById("patientId");
+
+
+
+patients.forEach(function(p){
+
+
+let option=document.createElement("option");
+
+
+option.value=p.id;
+
+
+option.text=p.id+" - "+p.name;
+
+
+select.appendChild(option);
+
+
+});
+
+
+
+
+
+
+
+// Load Patient Information
+
+
+function loadPatient(){
+
+
+let id =
+document.getElementById("patientId").value;
+
+
+
+let patient =
+
+patients.find(p=>p.id==id);
+
+
+
+if(patient){
+
+
+document.getElementById("patientName").value =
+patient.name;
+
+
+document.getElementById("age").value =
+patient.age;
+
+
+document.getElementById("mobile").value =
+patient.mobile;
+
+
+document.getElementById("problem").value =
+patient.problem;
+
+
+}
+
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>

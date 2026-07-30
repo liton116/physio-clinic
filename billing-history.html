@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Billing History
+</title>
+
+<link rel="stylesheet" href="billing-history.css">
+
+</head>
+
+
+<body>
+
+
+<div class="history-page">
+
+
+<div class="header">
+
+<h1>
+পেইন ম্যানেজমেন্ট ফিজিওথেরাপি সেন্টার
+</h1>
+
+<h2>
+Billing History
+</h2>
+
+</div>
+
+
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Invoice
+</th>
+
+<th>
+Patient ID
+</th>
+
+<th>
+Patient Name
+</th>
+
+<th>
+Total
+</th>
+
+<th>
+Paid
+</th>
+
+<th>
+Due
+</th>
+
+<th>
+Date
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="billList">
+
+
+</tbody>
+
+
+</table>
+
+
+
+<br>
+
+
+<button onclick="window.print()">
+
+🖨 Print History
+
+</button>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+let bills =
+
+JSON.parse(localStorage.getItem("bills")) || [];
+
+
+
+let list =
+
+document.getElementById("billList");
+
+
+
+bills.forEach(function(bill){
+
+
+let row = document.createElement("tr");
+
+
+
+row.innerHTML = `
+
+<td>${bill.invoice}</td>
+
+<td>${bill.patientId}</td>
+
+<td>${bill.patientName}</td>
+
+<td>${bill.total}</td>
+
+<td>${bill.paid}</td>
+
+<td>${bill.due}</td>
+
+<td>${bill.date}</td>
+
+`;
+
+
+
+list.appendChild(row);
+
+
+
+});
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

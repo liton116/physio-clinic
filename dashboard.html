@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Pain Management Physiotherapy Center Dashboard
+</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+<!-- ================= HEADER ================= -->
+
+<div class="header">
+
+
+<h1 id="clinicName">
+পেইন ম্যানেজমেন্ট ফিজিওথেরাপি সেন্টার
+</h1>
+
+
+<h2 id="englishName">
+Pain Management Physiotherapy Center
+</h2>
+
+
+<p id="address">
+পাকেরহাট, খানসামা, দিনাজপুর
+</p>
+
+
+<p id="phone">
+মোবাইল: 01750392591
+</p>
+
+
+</div>
+
+
+
+
+
+<!-- ================= SUMMARY ================= -->
+
+
+<div class="summary">
+
+
+<div class="box">
+
+<h3>
+মোট রোগী
+</h3>
+
+<p id="totalPatient">
+0
+</p>
+
+</div>
+
+
+
+
+<div class="box">
+
+<h3>
+আজকের রোগী
+</h3>
+
+<p id="todayPatient">
+0
+</p>
+
+</div>
+
+
+
+
+
+<div class="box">
+
+<h3>
+মোট আয়
+</h3>
+
+<p id="todayIncome">
+0 ৳
+</p>
+
+</div>
+
+
+
+
+
+<div class="box">
+
+<h3>
+মোট বকেয়া
+</h3>
+
+<p id="dueAmount">
+0 ৳
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- ================= MENU ================= -->
+
+
+<div class="menu">
+
+
+<a href="registration.html">
+
+👤 রোগী রেজিস্ট্রেশন
+
+</a>
+
+
+
+<a href="billing.html">
+
+🧾 বিলিং / মানি রিসিপ্ট
+
+</a>
+
+
+
+
+<a href="billing-history.html">
+
+📋 বিলিং হিস্টোরি
+
+</a>
+
+
+
+
+
+<a href="report.html">
+
+📄 রোগীর রিপোর্ট
+
+</a>
+
+
+
+
+
+<a href="settings.html">
+
+⚙ সেটিংস
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+
+<div class="footer">
+
+
+<p>
+Pain Management Physiotherapy Center
+</p>
+
+
+<p>
+Physiotherapist: লিটন চন্দ্র রায়
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+// Load Settings Data
+
+
+window.onload=function(){
+
+
+
+document.getElementById("clinicName").innerHTML =
+
+localStorage.getItem("clinicName") ||
+
+"পেইন ম্যানেজমেন্ট ফিজিওথেরাপি সেন্টার";
+
+
+
+
+
+document.getElementById("englishName").innerHTML =
+
+localStorage.getItem("englishName") ||
+
+"Pain Management Physiotherapy Center";
+
+
+
+
+
+document.getElementById("address").innerHTML =
+
+localStorage.getItem("address") ||
+
+"পাকেরহাট, খানসামা, দিনাজপুর";
+
+
+
+
+
+document.getElementById("phone").innerHTML =
+
+"মোবাইল: " +
+
+(localStorage.getItem("phone") || "01750392591");
+
+
+
+
+
+
+
+// Total Patient Count
+
+
+let patients =
+
+JSON.parse(localStorage.getItem("patients")) || [];
+
+
+
+document.getElementById("totalPatient").innerHTML =
+
+patients.length;
+
+
+
+
+
+
+
+// Total Income
+
+
+let income =
+
+localStorage.getItem("totalIncome") || 0;
+
+
+
+document.getElementById("todayIncome").innerHTML =
+
+income + " ৳";
+
+
+
+
+
+
+
+
+// Total Due
+
+
+let due =
+
+localStorage.getItem("totalDue") || 0;
+
+
+
+document.getElementById("dueAmount").innerHTML =
+
+due + " ৳";
+
+
+
+
+
+
+
+// Today Patient Count
+
+
+let today = new Date().toISOString().split("T")[0];
+
+
+
+let todayCount = patients.filter(function(p){
+
+
+return p.date == today;
+
+
+}).length;
+
+
+
+document.getElementById("todayPatient").innerHTML =
+
+todayCount;
+
+
+
+}
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
