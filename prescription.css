@@ -1,254 +1,405 @@
-body{
-margin:0;
-padding:0;
-background:#eee;
-font-family:"SolaimanLipi",Arial,sans-serif;
+/* ================================
+   PRESCRIPTION - A4 ONE PAGE
+   ================================ */
+
+* {
+    box-sizing: border-box;
 }
 
-
-.page{
-width:210mm;
-min-height:297mm;
-margin:auto;
-background:white;
-padding:10mm;
-box-sizing:border-box;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #eeeeee;
+    font-family: "SolaimanLipi", "Noto Sans Bengali", Arial, sans-serif;
+    color: #111;
 }
 
+/* A4 PAGE */
 
-/* HEADER */
-
-.header{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-width:100%;
+.page {
+    width: 210mm;
+    height: 297mm;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 5mm;
+    background: #ffffff;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
+/* ================================
+   HEADER
+   ================================ */
 
-/* বাংলা বাম পাশ */
-
-.doctor-left{
-width:33%;
-text-align:left;
-font-size:13px;
-line-height:0.5;
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 3mm 0;
+    padding: 0 0 2mm 0;
+    border-bottom: 1px solid #222;
 }
 
-
-/* মাঝখানে লোগো */
-
-.center{
-width:34%;
-text-align:center;
+.header-left,
+.header-right {
+    width: 38%;
+    line-height: 1.15;
 }
 
-
-.logo{
-width:80px;
-height:80px;
-object-fit:contain;
+.header-left {
+    text-align: left;
 }
 
-
-.center h2{
-font-size:22px;
-margin:5px 0;
+.header-right {
+    text-align: right;
 }
 
-
-/* ইংরেজি ডান পাশ */
-
-.doctor-right{
-width:33%;
-text-align:right;
-font-size:13px;
-line-height:0.5;
+.header-center {
+    width: 24%;
+    text-align: center;
 }
 
-
-
-
-.service{
-font-size:12px;
-font-weight:bold;
+.header-center img,
+.logo {
+    max-width: 28mm;
+    max-height: 28mm;
+    object-fit: contain;
 }
 
-
-
-
-hr{
-border:1px solid #000;
+.header h1,
+.header h2,
+.header h3,
+.header p {
+    margin: 0;
+    padding: 0;
 }
 
-
-
-
-/* PATIENT TABLE */
-
-
-.patient-table{
-width:100%;
-border-collapse:collapse;
-margin-top:10px;
+.header h1 {
+    font-size: 16px;
+    line-height: 1.15;
 }
 
-
-.patient-table td{
-border:1px solid #000;
-padding:8px;
-font-size:14px;
+.header h2 {
+    font-size: 13px;
+    line-height: 1.15;
 }
 
-
-
-
-/* BODY */
-
-
-.body{
-display:flex;
-width:100%;
+.header h3 {
+    font-size: 11px;
+    line-height: 1.15;
 }
 
-
-.left{
-width:45%;
-padding-right:10px;
-border-right:1px solid #000;
+.header p {
+    font-size: 9px;
+    line-height: 1.15;
 }
 
+/* ================================
+   CLINIC INFORMATION
+   ================================ */
 
-.right{
-width:55%;
-padding-left:10px;
+.clinic-info {
+    text-align: center;
+    margin: 1.5mm 0 2mm 0;
+    line-height: 1.15;
 }
 
-
-
-.section h3,
-.right h3{
-font-size:15px;
-margin:5px 0;
+.clinic-info h2,
+.clinic-info h3,
+.clinic-info p {
+    margin: 0;
+    padding: 0;
 }
 
-
-.box{
-border:1px solid #000;
-min-height:60px;
-padding:5px;
-margin-bottom:10px;
+.clinic-info h2 {
+    font-size: 15px;
 }
 
-
-
-
-/* RX */
-
-
-.rx-header h1{
-font-size:45px;
-margin:0;
+.clinic-info h3 {
+    font-size: 12px;
 }
 
-
-.rx-box{
-border:1px solid #000;
-min-height:250px;
-padding:10px;
+.clinic-info p {
+    font-size: 9px;
 }
 
+/* ================================
+   PATIENT INFORMATION
+   ================================ */
 
-
-
-/* VAS */
-
-.pain-scale{
-display:flex;
-justify-content:space-between;
-border:1px solid #000;
-padding:8px;
+.patient-info {
+    width: 100%;
+    margin: 2mm 0;
+    padding: 2mm;
+    border: 1px solid #222;
+    border-radius: 2px;
 }
 
-
-.pain-item{
-text-align:center;
-font-size:18px;
+.patient-info table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-
-.pain-item small{
-font-size:10px;
+.patient-info td {
+    padding: 1mm 1.5mm;
+    font-size: 10px;
+    line-height: 1.15;
+    vertical-align: middle;
 }
 
-
-
-
-
-.advice-box,
-.follow-box{
-border:1px solid #000;
-min-height:50px;
-padding:5px;
+.patient-info .label {
+    font-weight: bold;
+    white-space: nowrap;
 }
 
+/* ================================
+   MAIN CONTENT
+   ================================ */
 
-
-
-
-/* FOOTER */
-
-
-.footer{
-display:flex;
-justify-content:space-between;
-border-top:1px solid #000;
-margin-top:20px;
-padding-top:10px;
-font-size:12px;
-text-align:center;
+.content {
+    width: 100%;
+    margin: 2mm 0 0 0;
 }
 
+.content h2,
+.content h3,
+.content h4,
+.content p {
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.content h2 {
+    font-size: 14px;
+}
+
+.content h3 {
+    font-size: 12px;
+}
+
+.content h4 {
+    font-size: 11px;
+}
+
+.content p {
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+/* ================================
+   DIAGNOSIS
+   ================================ */
+
+.diagnosis {
+    width: 100%;
+    margin: 2mm 0;
+    padding: 2mm;
+    border: 1px solid #222;
+}
+
+.diagnosis-title {
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 1mm;
+}
+
+.diagnosis p {
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+/* ================================
+   PAIN SCALE
+   ================================ */
+
+.pain-scale {
+    width: 100%;
+    margin: 2mm 0;
+    text-align: center;
+}
+
+.pain-scale img {
+    max-width: 100%;
+    max-height: 25mm;
+    object-fit: contain;
+}
+
+.pain-scale-title {
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: 1mm;
+}
+
+/* ================================
+   TREATMENT PLAN
+   ================================ */
+
+.treatment-plan {
+    width: 100%;
+    margin: 2mm 0;
+    padding: 2mm;
+    border: 1px solid #222;
+}
+
+.treatment-plan h3 {
+    margin: 0 0 1mm 0;
+    font-size: 12px;
+}
+
+.treatment-plan p {
+    margin: 0 0 1mm 0;
+    font-size: 10px;
+    line-height: 1.15;
+}
+
+.treatment-plan ul {
+    margin: 1mm 0;
+    padding-left: 5mm;
+}
+
+.treatment-plan li {
+    font-size: 10px;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================================
+   TABLE
+   ================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    border: 1px solid #333;
+    padding: 1mm;
+    font-size: 9.5px;
+    line-height: 1.1;
+    vertical-align: middle;
+}
+
+table th {
+    font-weight: bold;
+}
+
+/* ================================
+   TWO COLUMN AREA
+   ================================ */
+
+.two-column {
+    width: 100%;
+    display: flex;
+    gap: 3mm;
+    margin: 2mm 0;
+}
+
+.two-column > div {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+
+.footer {
+    width: 100%;
+    margin-top: 3mm;
+    padding-top: 2mm;
+    border-top: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
 
 .footer-left,
-.footer-center,
-.footer-right{
-width:33%;
+.footer-right {
+    width: 48%;
+    font-size: 9px;
+    line-height: 1.2;
 }
 
-
-
-
-
-/* PRINT */
-
-.print-area{
-text-align:center;
-margin-top:15px;
+.footer-right {
+    text-align: right;
 }
 
-
-button{
-padding:10px 20px;
-font-size:16px;
+.signature {
+    margin-top: 5mm;
+    text-align: center;
 }
 
-
-
-@media print{
-
-body{
-background:white;
+.signature p {
+    margin: 0;
+    font-size: 9px;
+    line-height: 1.15;
 }
 
+/* ================================
+   BUTTON / SCREEN ONLY
+   ================================ */
 
-.page{
-margin:0;
+.no-print {
+    display: block;
 }
 
-
-.print-area{
-display:none;
+.print-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
 }
 
+/* ================================
+   PRINT SETTINGS
+   ================================ */
+
+@media print {
+
+    @page {
+        size: A4;
+        margin: 5mm;
+    }
+
+    html,
+    body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+    }
+
+    .page {
+        width: 210mm;
+        height: 287mm;
+        min-height: 0;
+        margin: 0;
+        padding: 5mm;
+        overflow: hidden;
+        page-break-after: avoid;
+        page-break-before: avoid;
+        page-break-inside: avoid;
+    }
+
+    .no-print,
+    .print-button {
+        display: none !important;
+    }
+
+    .header,
+    .patient-info,
+    .diagnosis,
+    .pain-scale,
+    .treatment-plan,
+    .footer {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
 }
