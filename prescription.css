@@ -1,430 +1,167 @@
-/* =====================================================
-   FINAL FIX FOR YOUR PRESCRIPTION HTML
-   ===================================================== */
-
-/* ---------- HEADER ---------- */
+/* =========================================
+   HEADER ALIGNMENT FIX
+   ========================================= */
 
 .header {
-    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    margin: 0 0 2mm 0;
-    padding: 0 0 2mm 0;
-    border-bottom: 1px solid #222;
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 2mm;
 }
 
-/* LEFT DOCTOR */
-
-.doctor-left {
-    width: 37%;
-    text-align: left;
-    margin: 0;
-    padding: 0;
+.header-left,
+.header-right {
+    width: 40%;
+    margin-top: 0;
+    padding-top: 0;
     line-height: 1.05;
 }
 
-/* CENTER */
-
-.center {
-    width: 26%;
+.header-center {
+    width: 20%;
+    margin-top: 0;
+    padding-top: 0;
     text-align: center;
-    margin: 0;
-    padding: 0;
-    line-height: 1.05;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-/* RIGHT DOCTOR */
+.header-center img,
+.header-center .logo,
+.logo {
+    width: 24mm;
+    height: 24mm;
+    object-fit: contain;
+    margin: 0 auto 1mm auto;
+    display: block;
+}
 
-.doctor-right {
-    width: 37%;
-    text-align: right;
+.header-center p,
+.header-center h2,
+.header-center h3 {
     margin: 0;
     padding: 0;
     line-height: 1.05;
 }
 
+/* ঠিকানাকে লোগোর নিচে বেশি নামতে দেবে না */
 
-/* ---------- HEADER TEXT ---------- */
+.header-center .address,
+.header-center .clinic-address {
+    margin-top: 0;
+    line-height: 1.05;
+    font-size: 8.5px;
+}
 
-.doctor-left h2,
-.doctor-right h2,
-.center h2 {
+/* =========================================
+   TREATMENT / CHIKITSA TEXT FIX
+   ========================================= */
+
+.treatment-plan {
+    margin-top: 1.5mm;
+    margin-bottom: 1.5mm;
+    padding: 1.5mm;
+}
+
+.treatment-plan h3 {
     margin: 0 0 1mm 0;
     padding: 0;
     line-height: 1.05;
 }
 
-.doctor-left h2,
-.doctor-right h2 {
-    font-size: 15px;
+/* চিকিৎসার তালিকা */
+
+.treatment-plan ul {
+    margin: 0;
+    padding-left: 4.5mm;
 }
 
-.center h2 {
-    font-size: 12px;
-    line-height: 1.05;
-}
-
-
-/* Doctor qualification */
-
-.doctor-left p,
-.doctor-right p {
+.treatment-plan li {
     margin: 0;
     padding: 0;
-    font-size: 8.5px;
     line-height: 1.05;
+    font-size: 9.5px;
 }
 
+/* চিকিৎসার নাম যদি পাশাপাশি থাকে */
 
-/* Center information */
-
-.center p {
-    margin: 0.5mm 0 0 0;
-    padding: 0;
-    font-size: 7.5px;
-    line-height: 1.05;
-}
-
-
-/* ---------- LOGO ---------- */
-
-.center .logo {
-    width: 22mm;
-    height: 22mm;
-    object-fit: contain;
-
-    margin: 0 auto 1mm auto;
-    padding: 0;
-
-    display: block;
-}
-
-
-/* ---------- SERVICE / TREATMENT NAMES ---------- */
-
-.doctor-left hr,
-.doctor-right hr {
-    margin: 1.5mm 0;
-    padding: 0;
-    border: 0;
-    border-top: 1px solid #777;
-}
-
-.service {
-    font-size: 7.5px !important;
-    line-height: 1.15 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-
-    white-space: normal;
-    word-spacing: 0.5px;
-}
-
-
-/* ---------- PATIENT TABLE ---------- */
-
-.patient-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5mm 0;
-}
-
-.patient-table td {
-    padding: 1mm 1.5mm;
-    font-size: 9px;
-    line-height: 1.1;
-    vertical-align: middle;
-}
-
-
-/* ---------- HORIZONTAL LINE ---------- */
-
-.page > hr {
-    margin: 1.5mm 0;
-    padding: 0;
-    border: 0;
-    border-top: 1px solid #222;
-}
-
-
-/* =====================================================
-   PRESCRIPTION BODY
-   ===================================================== */
-
-.body {
-    width: 100%;
+.treatment-list {
     display: flex;
-    align-items: flex-start;
-    gap: 3mm;
-    margin: 1.5mm 0;
-}
-
-
-/* LEFT SIDE */
-
-.body .left {
-    width: 47%;
+    flex-wrap: wrap;
+    gap: 0 5mm;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
 
-
-/* RIGHT SIDE */
-
-.body .right {
-    width: 53%;
-    margin: 0;
-    padding: 0;
-}
-
-
-/* ---------- SECTIONS ---------- */
-
-.section {
-    margin: 0 0 1.5mm 0;
-    padding: 0;
-}
-
-.section h3,
-.right h3 {
-    margin: 0 0 0.8mm 0;
-    padding: 0;
-
-    font-size: 10px;
+.treatment-list span {
+    font-size: 9.5px;
     line-height: 1.05;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
 }
 
+/* =========================================
+   MARGIN / EXTRA SPACE REDUCE
+   ========================================= */
 
-/* ---------- TEXT BOX ---------- */
+.content {
+    margin-top: 1mm;
+}
 
-.box {
-    min-height: 12mm;
-    max-height: 20mm;
-
-    border: 1px solid #777;
-
+.diagnosis {
+    margin-top: 1.5mm;
+    margin-bottom: 1.5mm;
     padding: 1.5mm;
-
-    font-size: 9px;
-    line-height: 1.1;
-
-    overflow: hidden;
 }
 
-
-/* ---------- RX ---------- */
-
-.rx-header {
-    margin: 0;
-    padding: 0;
+.patient-info {
+    margin-top: 1.5mm;
+    margin-bottom: 1.5mm;
+    padding: 1.5mm;
 }
-
-.rx-header h1 {
-    margin: 0;
-    padding: 0;
-
-    font-size: 28px;
-    line-height: 1;
-}
-
-.rx-box {
-    min-height: 48mm;
-    max-height: 55mm;
-
-    border: 1px solid #777;
-
-    margin: 0 0 2mm 0;
-    padding: 2mm;
-
-    font-size: 9px;
-    line-height: 1.15;
-
-    overflow: hidden;
-}
-
-
-/* =====================================================
-   VAS PAIN SCALE
-   ===================================================== */
 
 .pain-scale {
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    margin: 1mm 0;
-    padding: 0;
+    margin-top: 1.5mm;
+    margin-bottom: 1.5mm;
 }
-
-.pain-item {
-    text-align: center;
-    font-size: 8px;
-    line-height: 1;
-
-    flex: 1;
-}
-
-.pain-item input {
-    margin: 0;
-    padding: 0;
-}
-
-.pain-item small {
-    font-size: 6.5px;
-    line-height: 1;
-}
-
-
-/* Pain Score */
-
-.right > p {
-    margin: 1mm 0;
-    padding: 0;
-
-    font-size: 9px;
-    line-height: 1.1;
-}
-
-
-/* =====================================================
-   HOME ADVICE
-   ===================================================== */
-
-.advice-box {
-    min-height: 15mm;
-    max-height: 22mm;
-
-    border: 1px solid #777;
-
-    margin: 0 0 1.5mm 0;
-    padding: 1.5mm;
-
-    font-size: 9px;
-    line-height: 1.1;
-
-    overflow: hidden;
-}
-
-
-/* =====================================================
-   FOLLOW UP
-   ===================================================== */
-
-.follow-box {
-    min-height: 9mm;
-    max-height: 14mm;
-
-    border: 1px solid #777;
-
-    margin: 0;
-    padding: 1.5mm;
-
-    font-size: 9px;
-    line-height: 1.1;
-
-    overflow: hidden;
-}
-
-
-/* =====================================================
-   FOOTER
-   ===================================================== */
 
 .footer {
-    width: 100%;
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
     margin-top: 2mm;
-    padding-top: 1.5mm;
-
-    border-top: 1px solid #222;
 }
 
-.footer-left,
-.footer-center,
-.footer-right {
-    width: 33.33%;
-
-    font-size: 7.5px;
-    line-height: 1.1;
-
-    margin: 0;
-    padding: 0;
-}
-
-.footer-left {
-    text-align: left;
-}
-
-.footer-center {
-    text-align: center;
-}
-
-.footer-right {
-    text-align: right;
-}
-
-
-/* =====================================================
+/* =========================================
    PRINT
-   ===================================================== */
+   ========================================= */
 
 @media print {
 
-    @page {
-        size: A4;
-        margin: 4mm;
+    .header {
+        align-items: flex-start;
     }
 
-    html,
-    body {
-        width: 210mm;
-        height: 297mm;
-
-        margin: 0;
-        padding: 0;
-
-        background: #fff;
+    .header-left,
+    .header-center,
+    .header-right {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 
-    .page {
-        width: 202mm;
-        height: 289mm;
-
-        margin: 0;
-        padding: 4mm;
-
-        overflow: hidden;
+    .header-center img,
+    .header-center .logo,
+    .logo {
+        margin-top: 0 !important;
     }
 
-    .print-area {
-        display: none !important;
-    }
-
-    .header,
-    .patient-table,
-    .body,
-    .footer {
-        page-break-inside: avoid;
-        break-inside: avoid;
-    }
-
-    .section,
-    .pain-scale,
-    .rx-box,
-    .advice-box,
-    .follow-box {
+    .treatment-plan,
+    .diagnosis,
+    .patient-info,
+    .pain-scale {
         page-break-inside: avoid;
         break-inside: avoid;
     }
